@@ -1,5 +1,7 @@
 #include "Animal.hpp"
+#include "WrongAnimal.hpp"
 #include "Cat.hpp"
+#include "WrongCat.hpp"
 #include "Dog.hpp"
 #include <iostream>
 using std::cout;
@@ -19,5 +21,16 @@ int main()
     delete meta;
     delete i;
     delete j;
+
+    cout << "Wrong Test" << endl;
+    const WrongAnimal* wrong_animal = new WrongAnimal();
+    const WrongAnimal* wrong_cat = new WrongCat();
+    std::cout << wrong_cat->getType() << " " << std::endl;
+    wrong_cat->makeSound(); 
+    wrong_animal->makeSound();
+
+    delete wrong_animal;
+    delete wrong_cat;
+
     return (0);
 }

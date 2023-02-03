@@ -1,9 +1,9 @@
-NAME	:= I_dont_want_to_set_the_world_on_fire
+NAME 	:= exe
 LIB	:= ./lib/
 OBJDIR	:= ./obj
 SRCDIR	:= ./srcs/
-SRC	:= Animal.cpp WrongAnimal.cpp Dog.cpp Cat.cpp WrongCat.cpp main.cpp
-ENTRY	:= 
+SRC	:= 
+ENTRY	:= AMateria.cpp Character.cpp Cure.cpp Ice.cpp ICharacter.cpp
 
 INCS	:= ./include
 IFLAGS	:= $(addprefix -I,$(INCS))

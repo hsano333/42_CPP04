@@ -12,7 +12,6 @@ class Cat : public Animal
         void operator=(const Cat &animal);
         ~Cat();
         virtual void makeSound() const;
-        //string getType(void);
 };
 
 #endif
