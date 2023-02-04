@@ -11,7 +11,6 @@ int main()
 {
 
 
-    //const Animal* a = new Animal();
     const Animal* j = new Dog();
     const Animal* i = new Cat();
     const Animal* k;
@@ -28,6 +27,7 @@ int main()
         array_animal[i] = new Dog();
     }
 
+
     for (int i = 0; i < 10; i++)
     {
         delete array_animal[i];
@@ -35,7 +35,9 @@ int main()
 
     delete j;
     delete i;
-    system("leaks I_dont_want_to_set_the_world_on_fire");
-    return (0);
 
+    //Animal abst = new Animal();
+
+    //system("leaks I_dont_want_to_set_the_world_on_fire");
+    return (0);
 }

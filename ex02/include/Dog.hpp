@@ -4,7 +4,7 @@
 #include <Animal.hpp>
 #include <Brain.hpp>
 
-class Dog : public Animal
+class Dog : virtual public Animal
 {
     private:
         Brain* brain_;
@@ -12,9 +12,8 @@ class Dog : public Animal
         Dog();
         Dog(const Dog &dog);
         void operator=(const Dog &dog);
-        ~Dog();
+        virtual ~Dog();
         virtual void makeSound() const;
-        //string getType(void);
 };
 
 #endif
