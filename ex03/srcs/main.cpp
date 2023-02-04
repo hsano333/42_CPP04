@@ -26,10 +26,6 @@ int main(void)
     me->equip(tmp);
     tmp = src->createMateria("fire");
     me->equip(tmp);
-    tmp = src->createMateria("stone");
-    me->equip(tmp);
-    tmp = src->createMateria("wind");
-    me->equip(tmp);
     tmp = src->createMateria("ice");
     me->equip(tmp);
     tmp = src->createMateria("cure");
@@ -60,6 +56,6 @@ int main(void)
     delete me;
     delete src;
 
-   //system("leaks  Interface_recap");
+    //system("leaks  Interface_recap");
     return (0);
 }
