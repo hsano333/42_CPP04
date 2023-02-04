@@ -17,6 +17,7 @@ int main(void)
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
     ICharacter* me = new Character("me");
+    ICharacter* you = new Character("you");
 
     AMateria* tmp;
     tmp = src->createMateria("ice");
@@ -55,8 +56,19 @@ int main(void)
     me->use(2, *bob);
     me->use(3, *bob);
 
+    you = me;
+    cout << "use you 0" << endl;
+    you->use(0, *bob);
+    cout << "use you 1" << endl;
+    you->use(1, *bob);
+    cout << "use you 2" << endl;
+    you->use(2, *bob);
+    cout << "use you 3" << endl;
+    you->use(3, *bob);
+
     delete bob;
     delete me;
+    delete you;
     delete src;
 
     //system("leaks  Interface_recap");
