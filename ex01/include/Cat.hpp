@@ -13,9 +13,8 @@ class Cat : public Animal
         Cat();
         Cat(const Cat &animal);
         void operator=(const Cat &animal);
-        ~Cat();
+        virtual ~Cat();
         virtual void makeSound() const;
-        //string getType(void);
 };
 
 #endif

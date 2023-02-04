@@ -13,7 +13,6 @@ Brain::Brain(const Brain &brain)
     cout << "[Brain] Copy constructor called" << endl;
     for(int i=0; i < array_size_; i++)
     {
-        //this->ideas[i] = brain.ideas[i];
         this->ideas[i] = std::string(brain.ideas[i]);
     }
 }
@@ -21,7 +20,6 @@ Brain::Brain(const Brain &brain)
 void Brain::operator=(const Brain &brain)
 {
     cout << "[Brain]Copy assignment operator called" << endl;
-    //this->deepcopy(this, brain);
     for(int i=0; i < array_size_; i++)
     {
         this->ideas[i] = std::string(brain.ideas[i]);
