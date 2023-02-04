@@ -18,8 +18,12 @@ int main()
     j->makeSound();
     meta->makeSound();
 
+
+
     delete meta;
-    delete i;
+    meta = i;
+    i->makeSound(); 
+    delete meta;
     delete j;
 
     cout << "Wrong Test" << endl;
@@ -32,5 +36,6 @@ int main()
     delete wrong_animal;
     delete wrong_cat;
 
+    //system("leaks I_dont_want_to_set_the_world_on_fire");
     return (0);
 }
