@@ -27,6 +27,7 @@ int main()
         array_animal[i] = new Dog();
     }
 
+
     for (int i = 0; i < 10; i++)
     {
         delete array_animal[i];

@@ -27,7 +27,7 @@ Animal::~Animal()
 
 void Animal::makeSound(void) const
 {
-    cout << "???????????" << endl;
+    cout << "Animal Wan! Nya-" << endl;
 }
 
 string const &Animal::getType(void) const

@@ -5,26 +5,27 @@ using std::endl;
 
 Dog::Dog()
 {
-    cout << "[Dog] default constructor called" << endl;
     this->type_ = "Dog";
     this->brain_ = new Brain;
+    cout << "[Dog] default constructor called. brain address:" << this->brain_ << endl;
 }
 Dog::Dog(const Dog &dog)
 {
-    cout << "[Dog] Copy constructor called" << endl;
+    Brain *tmp = new Brain;
+    this->brain_->deepcopy(dog.brain_, tmp);
     this->type_ = dog.type_;
-    this->brain_ = dog.brain_;
-    this->brain_->deepcopy(dog.brain_, this->brain_);
+    this->brain_ = tmp;
+    cout << "[Dog] Copy constructor called. this brain address: " << this->brain_ << " copy brain address:" << dog.brain_  << endl;
 }
 
 void Dog::operator=(const Dog &dog)
 {
+    delete this->brain_;
     Brain *tmp = new Brain;
     this->brain_->deepcopy(dog.brain_, tmp);
-    cout << "[Dog]Copy assignment operator called" << endl;
     this->type_ = dog.type_;
-    delete this->brain_;
     this->brain_ = tmp;
+    cout << "[Dog]Copy assignment operator called. this brain address:" << this->brain_ << " copy brain address:" << dog.brain_ << endl;
 }
 
 Dog::~Dog()
@@ -35,5 +36,6 @@ Dog::~Dog()
 
 void Dog::makeSound(void) const
 {
+    cout << "makeSound() brain=" << this->brain_ << endl;
     cout << "Wan!" << endl;
 }

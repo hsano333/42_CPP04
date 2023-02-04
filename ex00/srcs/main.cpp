@@ -31,7 +31,7 @@ int main()
     const WrongAnimal* wrong_cat = new WrongCat();
     std::cout << wrong_cat->getType() << " " << std::endl;
     wrong_cat->makeSound(); 
-    wrong_animal->makeSound();
+    //wrong_animal->makeSound();
 
     delete wrong_animal;
     delete wrong_cat;

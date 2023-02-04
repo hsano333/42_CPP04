@@ -27,7 +27,7 @@ WrongAnimal::~WrongAnimal()
 
 void WrongAnimal::makeSound(void) const
 {
-    cout << "???????????" << endl;
+    cout << "Wrong Wan! Nya-" << endl;
 }
 
 string const &WrongAnimal::getType(void) const

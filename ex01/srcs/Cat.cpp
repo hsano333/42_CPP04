@@ -5,27 +5,27 @@ using std::endl;
 
 Cat::Cat()
 {
-    cout << "[Cat] default constructor called" << endl;
     this->type_ = "Cat";
     this->brain_ = new Brain;
+    cout << "[Cat] default constructor called. brain address:" << this->brain_ << endl;
 }
 
 Cat::Cat(const Cat &cat)
 {
-    cout << "[Cat] Copy constructor called" << endl;
+    Brain *tmp = new Brain;
+    this->brain_->deepcopy(cat.brain_, tmp);
     this->type_ = cat.type_;
-    this->brain_ = new Brain;
-    this->brain_->deepcopy(cat.brain_, this->brain_);
+    this->brain_ = tmp;
+    cout << "[Cat] Copy constructor called. this brain address: " << this->brain_ << " copy brain address:" << cat.brain_  << endl;
 }
 
 void Cat::operator=(const Cat &cat)
 {
     Brain *tmp = new Brain;
     this->brain_->deepcopy(cat.brain_, tmp);
-    cout << "[Cat]Copy assignment operator called" << endl;
     this->type_ = cat.type_;
-    delete this->brain_;
     this->brain_ = tmp;
+    cout << "[Cat] Copy constructor called. this brain address: " << this->brain_ << " copy brain address:" << cat.brain_  << endl;
 }
 
 Cat::~Cat()
