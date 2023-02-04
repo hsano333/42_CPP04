@@ -36,7 +36,9 @@ void Character::operator=(const Character& chara)
 
 Character::~Character()
 {
+    cout << "destractor Character No.1" << endl;
     this->delete_all_slot();
+    cout << "destractor Character No.2" << endl;
 }
 
 void Character::delete_all_slot(void)
@@ -44,6 +46,7 @@ void Character::delete_all_slot(void)
     for(int i=0; i < this->slot_id_; i++)
     {
         delete this->slot_[i];
+        this->slot_[i] = 0;
     }
 }
 

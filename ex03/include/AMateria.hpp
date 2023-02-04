@@ -18,11 +18,18 @@ class AMateria
         bool unused_;
     public:
         AMateria(std::string const & type);
+
+        AMateria();
         virtual ~AMateria();
+        AMateria(const AMateria& materia);
+        void operator=(const AMateria& materia);
+
         std::string const & getType() const;
-        void unuse(void);
         virtual AMateria* clone() const = 0;
         virtual void use(ICharacter& target);
+
+
+        void unuse(void);
         bool getUsed(void);
 };
 #endif
