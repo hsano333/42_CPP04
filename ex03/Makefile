@@ -1,9 +1,8 @@
-NAME 	:= exe
+NAME 	:= Interface_recap
 LIB	:= ./lib/
 OBJDIR	:= ./obj
 SRCDIR	:= ./srcs/
-SRC	:= 
-ENTRY	:= AMateria.cpp Character.cpp Cure.cpp Ice.cpp ICharacter.cpp
+SRC	:= AMateria.cpp MateriaSource.cpp Character.cpp Cure.cpp Ice.cpp  main.cpp
 
 INCS	:= ./include
 IFLAGS	:= $(addprefix -I,$(INCS))

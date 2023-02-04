@@ -8,18 +8,26 @@ Ice::Ice() : AMateria("ice")
 {
 }
 
-Ice::Ice(const Ice& ice) : AMateria("ice")
+Ice::Ice(const Ice& ice) : AMateria(ice.getType())
+{
+}
+
+Ice::~Ice()
 {
 }
 
 void Ice::operator=(const Ice& ice)
 {
+    this->unused_ = ice.unused_;
     this->type_ = ice.type_;
 }
 
 void Ice::use(ICharacter& chara)
 {
-    cout << "* shoots an ice bolt at " << chara.getName() << " *";
+    if (this->unused_ == false)
+        cout << "* shoots an ice bolt at " << chara.getName() << " *" << endl;
+    else
+        cout << "[Cure] error: this materia is not unequip()" << endl;
 }
 
 AMateria* Ice::clone() const

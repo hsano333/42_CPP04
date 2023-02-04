@@ -16,7 +16,7 @@ class Ice : virtual public AMateria
         Ice(const Ice& ice);
         void operator=(const Ice& ice);
         ~Ice();
-        std::string const & getType() const;
+        //std::string const & getType() const;
         virtual void use(ICharacter&);
         AMateria* clone() const;
 

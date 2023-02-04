@@ -15,7 +15,7 @@ class Cure : virtual public AMateria
         Cure(const Cure& ice);
         void operator=(const Cure& ice);
         ~Cure();
-        std::string const & getType() const;
+        //std::string const & getType() const;
         virtual void use(ICharacter&);
         AMateria* clone() const;
 };

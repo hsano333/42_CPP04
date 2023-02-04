@@ -41,7 +41,7 @@ Character::~Character()
 
 void Character::delete_all_slot(void)
 {
-    for(int i=0; i <= this->slot_id_; i++)
+    for(int i=0; i < this->slot_id_; i++)
     {
         delete this->slot_[i];
     }
@@ -55,18 +55,31 @@ std::string const &Character::getName() const
 void Character::equip(AMateria* m)
 {
     if (this->slot_id_ >= slot_max_)
+    {
+        cout << "[Character] equip error.exceed slot_max" << endl;
         return ;
+    }
+    if ( m == 0)
+    {
+        cout << "[Character] equip error.invalid materia" << endl;
+        return ;
+    }
     this->slot_[this->slot_id_] = m;
     this->slot_id_++;
 }
 
 void Character::unequip(int idx)
 {
-
+    if (idx < (slot_id_))
+        this->slot_[idx]->unuse();
+    else
+        cout << "[Character] unequip error.invalid slot id" << endl;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
     if (idx < (slot_id_))
         this->slot_[idx]->use(target);
+    else
+        cout << "[Character] use error.invalid slot id" << endl;
 }
