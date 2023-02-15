@@ -41,6 +41,6 @@ Dog::~Dog()
 
 void Dog::makeSound(void) const
 {
-    cout << "makeSound() brain=" << this->brain_ << endl;
+    //cout << "makeSound() brain=" << this->brain_ << endl;
     cout << "Wan!" << endl;
 }
