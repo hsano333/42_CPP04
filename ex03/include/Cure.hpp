@@ -13,7 +13,7 @@ class Cure : virtual public AMateria
     public:
         Cure();
         Cure(const Cure& ice);
-        void operator=(const Cure& ice);
+        Cure& operator=(const Cure& ice);
         ~Cure();
         //std::string const & getType() const;
         virtual void use(ICharacter&);

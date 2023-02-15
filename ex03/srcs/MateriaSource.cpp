@@ -13,14 +13,18 @@ MateriaSource::MateriaSource(const MateriaSource& msource)
         this->slot_[i] = msource.slot_[i];
     }
 }
-void MateriaSource::operator=(const MateriaSource& msource)
+MateriaSource& MateriaSource::operator=(const MateriaSource& msource)
 {
-    this->delete_all_slot();
-    this->slot_id_ = msource.slot_id_;
-    for (int i = 0; i < this->slot_id_; i++)
+    if (this != &msource)
     {
-        this->slot_[i] = msource.slot_[i];
+        this->delete_all_slot();
+        this->slot_id_ = msource.slot_id_;
+        for (int i = 0; i < this->slot_id_; i++)
+        {
+            this->slot_[i] = msource.slot_[i];
+        }
     }
+    return (*this);
 }
 
 MateriaSource::~MateriaSource()

@@ -14,7 +14,7 @@ class Ice : virtual public AMateria
     public:
         Ice();
         Ice(const Ice& ice);
-        void operator=(const Ice& ice);
+        Ice& operator=(const Ice& ice);
         ~Ice();
         //std::string const & getType() const;
         virtual void use(ICharacter&);

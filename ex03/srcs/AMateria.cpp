@@ -19,10 +19,11 @@ AMateria::AMateria(const AMateria& materia)
     this->type_ = materia.type_;
 }
 
-void AMateria::operator=(const AMateria& materia)
+AMateria& AMateria::operator=(const AMateria& materia)
 {
     this->unused_ = materia.unused_;
     this->type_ = materia.type_;
+    return (*this);
 }
 
 std::string const &AMateria::getType(void) const

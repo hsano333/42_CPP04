@@ -15,10 +15,12 @@ Cure::~Cure()
 {
 }
 
-void Cure::operator=(const Cure& cure)
+Cure& Cure::operator=(const Cure& cure)
 {
-    this->unused_ = cure.unused_;
-    this->type_ = cure.type_;
+    this->AMateria::operator=(cure);
+    //this->unused_ = cure.unused_;
+    //this->type_ = cure.type_;
+    return (*this);
 }
 
 void Cure::use(ICharacter& chara)

@@ -16,10 +16,12 @@ Ice::~Ice()
 {
 }
 
-void Ice::operator=(const Ice& ice)
+Ice& Ice::operator=(const Ice& ice)
 {
-    this->unused_ = ice.unused_;
-    this->type_ = ice.type_;
+    this->AMateria::operator=(ice);
+    //this->unused_ = ice.unused_;
+    //this->type_ = ice.type_;
+    return (*this);
 }
 
 void Ice::use(ICharacter& chara)

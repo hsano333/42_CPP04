@@ -24,14 +24,18 @@ Character::Character(const Character& chara)
     }
 }
 
-void Character::operator=(const Character& chara)
+Character& Character::operator=(const Character& chara)
 {
-    this->delete_all_slot();
-    this->slot_id_ = chara.slot_id_;
-    for (int i = 0; i < this->slot_id_; i++)
+    if (this != &chara)
     {
-        this->slot_[i] = chara.slot_[i];
+        this->delete_all_slot();
+        this->slot_id_ = chara.slot_id_;
+        for (int i = 0; i < this->slot_id_; i++)
+        {
+            this->slot_[i] = chara.slot_[i];
+        }
     }
+    return (*this);
 }
 
 Character::~Character()
