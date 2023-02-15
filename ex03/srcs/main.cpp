@@ -13,6 +13,7 @@ using std::endl;
 
 int main(void)
 {
+    {
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
@@ -55,6 +56,7 @@ int main(void)
     delete bob;
     delete me;
     delete src;
+    }
 
     //system("leaks  Interface_recap");
     return (0);
