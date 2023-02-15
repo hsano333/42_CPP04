@@ -3,7 +3,7 @@
 using std::cout;
 using std::endl;
 
-Cat::Cat()
+Cat::Cat() : Animal()
 {
     this->type_ = "Cat";
     this->brain_ = new Brain;
@@ -14,7 +14,7 @@ Cat::Cat(const Cat &cat) : Animal()
 {
     Brain *tmp = new Brain;
     this->brain_->deepcopy(cat.brain_, tmp);
-    this->type_ = cat.type_;
+    this->type_ = std::string(cat.type_);
     this->brain_ = tmp;
     cout << "[Cat] Copy constructor called. this brain address: " << this->brain_ << " copy brain address:" << cat.brain_  << endl;
 }
@@ -26,7 +26,7 @@ Cat& Cat::operator=(const Cat &cat)
         this->Animal::operator=(cat);
         Brain *tmp = new Brain;
         this->brain_->deepcopy(cat.brain_, tmp);
-        this->type_ = cat.type_;
+        this->type_ = std::string(cat.type_);
         this->brain_ = tmp;
     }
     cout << "[Cat] Copy constructor called. this brain address: " << this->brain_ << " copy brain address:" << cat.brain_  << endl;
