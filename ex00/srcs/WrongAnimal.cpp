@@ -14,10 +14,11 @@ WrongAnimal::WrongAnimal(const WrongAnimal &wrong_animal)
     cout << "[WrongAnimal] Copy constructor called" << endl;
     this->type_ = wrong_animal.type_;
 }
-void WrongAnimal::operator=(const WrongAnimal &wrong_animal)
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal &wrong_animal)
 {
     cout << "[WrongAnimal]Copy assignment operator called" << endl;
     this->type_ = wrong_animal.type_;
+    return (*this);
 }
 
 WrongAnimal::~WrongAnimal()

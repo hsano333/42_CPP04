@@ -11,7 +11,7 @@ class Animal
     public:
         Animal();
         Animal(const Animal &animal);
-        void operator=(const Animal &animal);
+        Animal& operator=(const Animal &animal);
         virtual ~Animal();
         virtual void makeSound(void) const = 0;
         string const &  getType(void) const;

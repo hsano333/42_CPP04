@@ -16,6 +16,7 @@ int main()
     const Animal* k;
 
     k = j;
+    k->makeSound();
 
     Animal *array_animal[10];
     for (int i = 0; i < 5; i++)

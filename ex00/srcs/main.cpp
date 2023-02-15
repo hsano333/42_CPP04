@@ -22,11 +22,15 @@ int main()
 
     delete meta;
     meta = i;
-    i->makeSound(); 
+    i->makeSound();
     delete meta;
     delete j;
 
-    cout << "Wrong Test" << endl;
+    cout << endl;
+    Dog k;
+    Dog l = Dog(k);
+
+    cout << endl << "Wrong Test" << endl;
     const WrongAnimal* wrong_animal = new WrongAnimal();
     const WrongAnimal* wrong_cat = new WrongCat();
     std::cout << wrong_cat->getType() << " " << std::endl;

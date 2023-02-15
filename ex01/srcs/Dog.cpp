@@ -9,7 +9,7 @@ Dog::Dog()
     this->brain_ = new Brain;
     cout << "[Dog] default constructor called. brain address:" << this->brain_ << endl;
 }
-Dog::Dog(const Dog &dog)
+Dog::Dog(const Dog &dog) : Animal()
 {
     Brain *tmp = new Brain;
     this->brain_->deepcopy(dog.brain_, tmp);
@@ -18,14 +18,19 @@ Dog::Dog(const Dog &dog)
     cout << "[Dog] Copy constructor called. this brain address: " << this->brain_ << " copy brain address:" << dog.brain_  << endl;
 }
 
-void Dog::operator=(const Dog &dog)
+Dog& Dog::operator=(const Dog &dog)
 {
-    delete this->brain_;
-    Brain *tmp = new Brain;
-    this->brain_->deepcopy(dog.brain_, tmp);
-    this->type_ = dog.type_;
-    this->brain_ = tmp;
+    if (this != &dog)
+    {
+        this->Animal::operator=(dog);
+        delete this->brain_;
+        Brain *tmp = new Brain;
+        this->brain_->deepcopy(dog.brain_, tmp);
+        this->type_ = dog.type_;
+        this->brain_ = tmp;
+    }
     cout << "[Dog]Copy assignment operator called. this brain address:" << this->brain_ << " copy brain address:" << dog.brain_ << endl;
+    return (*this);
 }
 
 Dog::~Dog()

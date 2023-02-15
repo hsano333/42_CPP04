@@ -17,13 +17,17 @@ Brain::Brain(const Brain &brain)
     }
 }
 
-void Brain::operator=(const Brain &brain)
+Brain& Brain::operator=(const Brain &brain)
 {
-    cout << "[Brain]Copy assignment operator called" << endl;
-    for(int i=0; i < array_size_; i++)
+    if (this != &brain)
     {
-        this->ideas[i] = std::string(brain.ideas[i]);
+        for(int i=0; i < array_size_; i++)
+        {
+            this->ideas[i] = std::string(brain.ideas[i]);
+        }
     }
+    cout << "[Brain]Copy assignment operator called" << endl;
+    return (*this);
 }
 
 Brain::~Brain()
