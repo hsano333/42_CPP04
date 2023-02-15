@@ -20,7 +20,7 @@ Character::Character(const Character& chara)
     this->slot_id_ = chara.slot_id_;
     for (int i = 0; i < this->slot_id_; i++)
     {
-        this->slot_[i] = chara.slot_[i];
+        this->slot_[i] = chara.slot_[i]->clone();
     }
 }
 
@@ -32,7 +32,7 @@ Character& Character::operator=(const Character& chara)
         this->slot_id_ = chara.slot_id_;
         for (int i = 0; i < this->slot_id_; i++)
         {
-            this->slot_[i] = chara.slot_[i];
+            this->slot_[i] = chara.slot_[i]->clone();
         }
     }
     return (*this);
@@ -40,9 +40,7 @@ Character& Character::operator=(const Character& chara)
 
 Character::~Character()
 {
-    cout << "destractor Character No.1" << endl;
     this->delete_all_slot();
-    cout << "destractor Character No.2" << endl;
 }
 
 void Character::delete_all_slot(void)

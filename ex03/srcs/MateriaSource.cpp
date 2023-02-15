@@ -10,7 +10,7 @@ MateriaSource::MateriaSource(const MateriaSource& msource)
     this->slot_id_ = msource.slot_id_;
     for (int i = 0; i < this->slot_id_; i++)
     {
-        this->slot_[i] = msource.slot_[i];
+        this->slot_[i] = msource.slot_[i]->clone();
     }
 }
 MateriaSource& MateriaSource::operator=(const MateriaSource& msource)
@@ -21,7 +21,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& msource)
         this->slot_id_ = msource.slot_id_;
         for (int i = 0; i < this->slot_id_; i++)
         {
-            this->slot_[i] = msource.slot_[i];
+            this->slot_[i] = msource.slot_[i]->clone();
         }
     }
     return (*this);
@@ -29,9 +29,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& msource)
 
 MateriaSource::~MateriaSource()
 {
-    std::cout << "destractor MateriaSource No.1" << std::endl;
     this->delete_all_slot();
-    std::cout << "destractor MateriaSource No.1" << std::endl;
 }
 
 void MateriaSource::delete_all_slot(void)
