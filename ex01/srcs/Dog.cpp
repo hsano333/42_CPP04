@@ -3,7 +3,7 @@
 using std::cout;
 using std::endl;
 
-Dog::Dog()
+Dog::Dog() : Animal()
 {
     this->type_ = "Dog";
     this->brain_ = new Brain;
@@ -13,7 +13,7 @@ Dog::Dog(const Dog &dog) : Animal()
 {
     Brain *tmp = new Brain;
     this->brain_->deepcopy(dog.brain_, tmp);
-    this->type_ = dog.type_;
+    this->type_ = std::string(dog.type_);
     this->brain_ = tmp;
     cout << "[Dog] Copy constructor called. this brain address: " << this->brain_ << " copy brain address:" << dog.brain_  << endl;
 }
@@ -26,7 +26,7 @@ Dog& Dog::operator=(const Dog &dog)
         delete this->brain_;
         Brain *tmp = new Brain;
         this->brain_->deepcopy(dog.brain_, tmp);
-        this->type_ = dog.type_;
+        this->type_ = std::string(dog.type_);
         this->brain_ = tmp;
     }
     cout << "[Dog]Copy assignment operator called. this brain address:" << this->brain_ << " copy brain address:" << dog.brain_ << endl;
