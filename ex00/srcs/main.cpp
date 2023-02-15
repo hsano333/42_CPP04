@@ -22,6 +22,7 @@ int main()
 
     delete meta;
     meta = i;
+    cout << endl << "Cat Test" << endl;
     i->makeSound();
     delete meta;
     delete j;
@@ -37,6 +38,7 @@ int main()
     wrong_cat->makeSound(); 
     //wrong_animal->makeSound();
 
+    cout << endl;
     delete wrong_animal;
     delete wrong_cat;
 
