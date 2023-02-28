@@ -75,7 +75,7 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-    if (idx < (slot_id_))
+    if (0 <= idx && idx < (slot_id_))
         this->slot_[idx]->unuse();
     else
         cout << "[Character] unequip error.invalid slot id" << endl;
@@ -83,7 +83,7 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-    if (idx < (slot_id_))
+    if (0 <= idx && idx < (slot_id_))
         this->slot_[idx]->use(target);
     else
         cout << "[Character] use error.invalid slot id" << endl;

@@ -24,6 +24,7 @@ Cat& Cat::operator=(const Cat &cat)
     if (this != &cat)
     {
         this->Animal::operator=(cat);
+        delete this->brain_;
         Brain *tmp = new Brain;
         this->brain_->deepcopy(cat.brain_, tmp);
         this->type_ = std::string(cat.type_);

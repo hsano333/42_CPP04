@@ -11,6 +11,13 @@
 using std::cout;
 using std::endl;
 
+/*
+#include <stdio.h>
+__attribute__((destructor)) void f(void){
+    system("leaks  Interface_recap");
+}
+*/
+
 int main(void)
 {
     {
@@ -36,12 +43,15 @@ int main(void)
     cout << endl << "Test:create and equip cure" << endl;
     tmp = src->createMateria("cure");
     me->equip(tmp);
+
     cout << endl << "Test:create and equip Max Error" << endl;
     tmp = src->createMateria("ice");
     me->equip(tmp);
+    delete tmp;
     cout << endl << "Test:create and equip Max Error" << endl;
     tmp = src->createMateria("cure");
     me->equip(tmp);
+    delete tmp;
 
 
 
@@ -63,11 +73,14 @@ int main(void)
     me->use(2, *bob);
     me->use(3, *bob);
 
+    me->use(-1, *bob);
+    me->unequip(-1);
+    me->use(UINT_MAX, *bob);
+    me->unequip(UINT_MAX);
     delete bob;
     delete me;
     delete src;
     }
 
-    //system("leaks  Interface_recap");
     return (0);
 }

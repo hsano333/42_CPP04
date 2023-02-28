@@ -1,4 +1,4 @@
-NAME	:= I_dont_want_to_set_the_world_on_fire
+NAME	:= Polymorphism
 LIB	:= ./lib/
 OBJDIR	:= ./obj
 SRCDIR	:= ./srcs/

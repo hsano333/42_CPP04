@@ -7,6 +7,13 @@
 using std::cout;
 using std::endl;
 
+/*
+#include <stdio.h>
+__attribute__((destructor)) void f(void){
+    system("leaks I_dont_want_to_set_the_world_on_fire");
+}
+*/
+
 int main()
 {
 
@@ -45,6 +52,17 @@ int main()
     delete i;
     cout << endl;
     }
-    //system("leaks I_dont_want_to_set_the_world_on_fire");
+
+    {
+        Cat cat2;
+        Cat cat3;
+
+        cat2 = cat3;
+
+        Dog dog2;
+        Dog dog3;
+
+        dog2 = dog3;
+    }
     return (0);
 }

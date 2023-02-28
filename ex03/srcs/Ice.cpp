@@ -19,8 +19,6 @@ Ice::~Ice()
 Ice& Ice::operator=(const Ice& ice)
 {
     this->AMateria::operator=(ice);
-    //this->unused_ = ice.unused_;
-    //this->type_ = ice.type_;
     return (*this);
 }
 
