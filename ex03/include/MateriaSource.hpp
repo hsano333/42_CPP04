@@ -6,6 +6,7 @@
 class MateriaSource : virtual public IMateriaSource
 {
     private:
+        const static int InvalidMateria = 0;
         const static int slot_max_ = 4;
         AMateria* slot_[slot_max_];
         int slot_id_;
@@ -15,7 +16,7 @@ class MateriaSource : virtual public IMateriaSource
         MateriaSource();
         MateriaSource(const MateriaSource& msource);
         MateriaSource& operator=(const MateriaSource& msource);
-        ~MateriaSource();
+        virtual ~MateriaSource();
         virtual void learnMateria(AMateria*);
         virtual AMateria* createMateria(std::string const & type);
 };

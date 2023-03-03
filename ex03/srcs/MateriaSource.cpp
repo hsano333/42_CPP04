@@ -29,7 +29,9 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& msource)
 
 MateriaSource::~MateriaSource()
 {
+    std::cout << "MateriaSource dest No.1" << std::endl;
     this->delete_all_slot();
+    std::cout << "MateriaSource dest No.2" << std::endl;
 }
 
 void MateriaSource::delete_all_slot(void)

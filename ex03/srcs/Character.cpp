@@ -40,14 +40,18 @@ Character& Character::operator=(const Character& chara)
 
 Character::~Character()
 {
+    std::cout << "Character No.1" << std::endl;
     this->delete_all_slot();
+    std::cout << "Character No.2" << std::endl;
 }
 
 void Character::delete_all_slot(void)
 {
     for(int i=0; i < this->slot_id_; i++)
     {
+        std::cout << "No.1 i=" << i << endl;
         delete this->slot_[i];
+        std::cout << "No.2 i=" << i << endl;
         this->slot_[i] = 0;
     }
 }
@@ -64,7 +68,7 @@ void Character::equip(AMateria* m)
         cout << "[Character] equip error.exceed slot_max" << endl;
         return ;
     }
-    if ( m == 0)
+    if ( m == 0) 
     {
         cout << "[Character] equip error.invalid materia" << endl;
         return ;

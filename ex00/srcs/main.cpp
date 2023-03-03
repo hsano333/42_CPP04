@@ -49,6 +49,5 @@ int main()
     delete wrong_animal;
     delete wrong_cat;
 
-    //system("leaks I_dont_want_to_set_the_world_on_fire");
     return (0);
 }
