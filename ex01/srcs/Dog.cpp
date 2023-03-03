@@ -9,7 +9,7 @@ Dog::Dog() : Animal()
     this->brain_ = new Brain;
     cout << "[Dog] default constructor called. brain address:" << this->brain_ << endl;
 }
-Dog::Dog(const Dog &dog) : Animal()
+Dog::Dog(const Dog &dog) : Animal(dog)
 {
     Brain *tmp = new Brain;
     this->brain_->deepcopy(dog.brain_, tmp);
