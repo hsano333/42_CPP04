@@ -9,7 +9,7 @@ Cat::Cat()
     this->type_ = "Cat";
 }
 
-Cat::Cat(const Cat &cat) : Animal()
+Cat::Cat(const Cat &cat) : Animal(cat)
 {
     cout << "[Cat] Copy constructor called" << endl;
     this->type_ = cat.type_;

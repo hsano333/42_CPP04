@@ -7,12 +7,10 @@
 using std::cout;
 using std::endl;
 
-/*
 #include <stdio.h>
 __attribute__((destructor)) void f(void){
     system("leaks Polymorphism");
 }
-*/
 
 int main()
 {
@@ -37,6 +35,10 @@ int main()
     cout << endl;
     Dog k;
     Dog l = Dog(k);
+    Dog m;
+    m = k;
+
+
 
     cout << endl << "Wrong Test" << endl;
     const WrongAnimal* wrong_animal = new WrongAnimal();
