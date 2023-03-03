@@ -78,42 +78,40 @@ int main(void)
         delete me;
         delete src;
     }
+    /*
     {
         cout << endl << "Test2" << endl;
-        cout << "test No.1" << endl;
         IMateriaSource* src = new MateriaSource();
         AMateria* tmp; 
         tmp = src->createMateria("ice");
         src->learnMateria(new Ice());
         src->learnMateria(new Cure());
-        cout << "test No.2" << endl;
         Character me1;
         tmp = src->createMateria("ice");
         me1.equip(tmp); //1
-        cout << "test No.3" << endl;
         tmp = src->createMateria("cure");
         me1.equip(tmp); //2
-        me1.equip(tmp); //3
+                        
+        //error 
+        //me1.equip(tmp); //3
+                        
         //Character me2;
         //me2 = me1;
-        cout << "test No.4" << endl;
         //Character me3 = Character(me2);
 
-        cout << "test No.5" << endl;
         Ice ice1;
         Ice ice2;
         ice2 = ice1;
         Ice ice3 = Ice(ice2);
         ice2 = ice1;
 
-        cout << "test No.6" << endl;
         Cure cure1;
         Cure cure2;
         cure2 = cure1;
         Cure cure3 = Cure(cure2);
-        cout << "test No.7" << endl;
         delete src;
     }
+    */
 
     return (0);
 }
