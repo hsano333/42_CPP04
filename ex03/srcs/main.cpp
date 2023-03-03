@@ -11,10 +11,12 @@
 using std::cout;
 using std::endl;
 
+/*
 #include <stdio.h>
 __attribute__((destructor)) void f(void){
     system("leaks  Interface_recap");
 }
+*/
 
 int main(void)
 {

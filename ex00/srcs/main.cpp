@@ -7,10 +7,12 @@
 using std::cout;
 using std::endl;
 
+/*
 #include <stdio.h>
 __attribute__((destructor)) void f(void){
     system("leaks Polymorphism");
 }
+*/
 
 int main()
 {
