@@ -10,7 +10,7 @@ Cat::Cat() : Animal()
     cout << "[Cat] default constructor called. brain address:" << this->brain_ << endl;
 }
 
-Cat::Cat(const Cat &cat) : Animal()
+Cat::Cat(const Cat &cat) : Animal(cat)
 {
     Brain *tmp = new Brain;
     this->brain_->deepcopy(cat.brain_, tmp);
