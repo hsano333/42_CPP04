@@ -21,9 +21,6 @@ int main()
         const Animal* i = new Cat();
         const Animal* k;
 
-        Dog *ddd = new Dog();
-        *ddd = *ddd;
-
         cout << "Test:Dog makeSound()" << endl;
         j->makeSound();
         k = j;
@@ -64,6 +61,10 @@ int main()
         Dog dog3;
 
         dog2 = dog3;
+
+        Dog *ddd = new Dog();
+        *ddd = *ddd;
+        delete ddd;
     }
     return (0);
 }
