@@ -14,10 +14,8 @@ Character::Character(string name) : slot_id_(0), name_(name)
 {
 }
 
-Character::Character(const Character& chara)
+Character::Character(const Character& chara) : slot_id_(chara.slot_id_)
 {
-    this->delete_all_slot();
-    this->slot_id_ = chara.slot_id_;
     for (int i = 0; i < this->slot_id_; i++)
     {
         this->slot_[i] = chara.slot_[i]->clone();

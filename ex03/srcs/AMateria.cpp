@@ -13,10 +13,8 @@ AMateria::AMateria() : type_("") , unused_(false)
 AMateria::~AMateria()
 {
 }
-AMateria::AMateria(const AMateria& materia)
+AMateria::AMateria(const AMateria& materia) : type_(materia.type_), unused_(materia.unused_)
 {
-    this->unused_ = materia.unused_;
-    this->type_ = materia.type_;
 }
 
 AMateria& AMateria::operator=(const AMateria& materia)
@@ -30,6 +28,7 @@ std::string const &AMateria::getType(void) const
 {
     return (this->type_);
 }
+
 void AMateria::use(ICharacter& target)
 {
     std::cout << "AMateria use test" << std::endl;

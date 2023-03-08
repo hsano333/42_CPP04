@@ -18,8 +18,6 @@ Cure::~Cure()
 Cure& Cure::operator=(const Cure& cure)
 {
     this->AMateria::operator=(cure);
-    //this->unused_ = cure.unused_;
-    //this->type_ = cure.type_;
     return (*this);
 }
 
