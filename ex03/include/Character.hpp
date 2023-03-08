@@ -10,10 +10,21 @@ class Character : virtual public ICharacter
 {
     private:
         const static int slot_max_ = 4;
-        AMateria* slot_[slot_max_];
-        int slot_id_;
+        std::pair<AMateria*, bool> slot_[slot_max_];
+        //int slot_id_;
         std::string name_;
         void delete_all_slot(void);
+        class UnequipedSlot{
+            public:
+                UnequipedSlot();
+                ~UnequipedSlot();
+                AMateria* slot;
+                UnequipedSlot* next;
+                void add(AMateria* slot);
+                void clear();
+        };
+        //AMateria* unequiped_slot;
+        UnequipedSlot unequiped_slot;
     public:
         Character();
         Character(string name);

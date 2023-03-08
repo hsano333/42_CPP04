@@ -4,10 +4,8 @@
 MateriaSource::MateriaSource() : slot_id_(0)
 {
 }
-MateriaSource::MateriaSource(const MateriaSource& msource)
+MateriaSource::MateriaSource(const MateriaSource& msource) : slot_id_(msource.slot_id_)
 {
-    this->delete_all_slot();
-    this->slot_id_ = msource.slot_id_;
     for (int i = 0; i < this->slot_id_; i++)
     {
         this->slot_[i] = msource.slot_[i]->clone();

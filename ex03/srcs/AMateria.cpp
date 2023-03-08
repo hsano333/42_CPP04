@@ -33,7 +33,6 @@ void AMateria::use(ICharacter& target)
 {
     std::cout << "AMateria use test" << std::endl;
     std::cout << "error:" << target.getName() << "is undefined materia" << std::endl;
-
 }
 
 void AMateria::unuse()
@@ -44,6 +43,5 @@ void AMateria::unuse()
 bool AMateria::getUsed(void)
 {
     return (!this->unused_);
-
 }
 
