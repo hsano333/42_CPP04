@@ -19,53 +19,49 @@ __attribute__((destructor)) void f(void){
 int main(void)
 {
     {
+        cout << "Test0" << endl;
+        IMateriaSource* src = new MateriaSource();
+        src->learnMateria(new Ice());
+        src->learnMateria(new Cure());
+        ICharacter* me = new Character("me");
+        AMateria* tmp;
+        tmp = src->createMateria("ice");
+        me->equip(tmp);
+        tmp = src->createMateria("cure");
+        me->equip(tmp);
+        ICharacter* bob = new Character("bob");
+        me->use(0, *bob);
+        me->use(1, *bob);
+        delete bob;
+        delete me;
+        delete src;
+    }
+    {
+        cout << endl << "Test1" << endl;
         IMateriaSource* src = new MateriaSource();
         src->learnMateria(new Ice());
         src->learnMateria(new Cure());
         ICharacter* me = new Character("me");
 
 
-        cout << "Test No.1" << endl;
         AMateria* tmp; 
-        cout << endl << "Test:create and equip ice" << endl;
         tmp = src->createMateria("ice");
         me->equip(tmp); //1
-        cout << endl << "Test:create and equip cure" << endl;
         tmp = src->createMateria("cure");
         me->equip(tmp); //2
-        cout << endl << "Test:create and equip fire:Error" << endl;
-        cout << "Test No.2" << endl;
+        cout << "[Main:TestError]" << endl;
         tmp = src->createMateria("fire");
         me->equip(tmp); //error
-        cout << endl << "Test:create and equip ice" << endl;
         tmp = src->createMateria("ice");
         me->equip(tmp); //3
-        cout << "Test No.3" << endl;
-        cout << endl << "Test:create and equip cure" << endl;
         tmp = src->createMateria("cure");
         me->equip(tmp); //4
-        cout << "Test No.4" << endl;
-
-        cout << endl << "Test:create and equip Max Error" << endl;
-        cout << "Test No.5" << endl;
         tmp = src->createMateria("ice");
-        cout << "Test No.6" << endl;
         me->equip(tmp); //error
-        cout << "Test No.7" << endl;
-        //delete tmp;
-        cout << "Test No.1" << endl;
-        cout << endl << "Test:create and equip Max Error" << endl;
-        cout << "Test No.1" << endl;
         tmp = src->createMateria("cure");
-        cout << "Test No.2" << endl;
         me->equip(tmp); //error
-        cout << "Test No.3" << endl;
-        //delete tmp;
-        cout << "Test No.4" << endl;
-
 
         ICharacter* bob = new Character("bob");
-        cout << "Test No.2" << endl;
         cout << endl << "Test:Use" << endl;
         me->use(0, *bob);
         me->use(1, *bob);
@@ -83,21 +79,39 @@ int main(void)
         me->use(2, *bob); //error
         me->use(3, *bob); 
 
-        cout << "main No.5" << endl;
         me->use(-1, *bob); //error
-        cout << "main No.6" << endl;
         me->unequip(-1);   //error
-        cout << "main No.7" << endl;
         me->use(UINT_MAX, *bob);
-        cout << "main No.8" << endl;
         me->unequip(UINT_MAX);
-        cout << "main No.9" << endl;
         delete bob;
-        cout << "main No.10" << endl;
         delete me;
-        cout << "main No.11" << endl;
         delete src;
-        cout << "main No.12" << endl;
+    }
+    {
+        cout << endl << "Test2" << endl;
+        ICharacter* me = new Character("me");
+        ICharacter* you= new  Character("you");
+
+        me->equip(new Ice()); 
+        me->equip(new Ice()); 
+        me->equip(new Cure());
+        me->unequip(0);
+        me->unequip(1);
+        me->unequip(2);
+        me->unequip(3);
+        me->unequip(0);
+        me->unequip(1);
+        you->equip(new Ice());
+        you->equip(new Ice());
+        you->equip(new Ice());
+        you->unequip(0);
+        you->unequip(1);
+        you->unequip(2);
+        *you = *me;
+        delete you;
+        delete me;
+        //return 0;
+
     }
     /*
     {

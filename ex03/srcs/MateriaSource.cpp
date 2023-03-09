@@ -65,6 +65,9 @@ AMateria* MateriaSource::createMateria(std::string const & type)
     int id = searchMateria(type);
     
     if (id == -1)
+    {
+        std::cout << "[AMateria] invalid type" << std::endl;
         return (0);
+    }
     return (this->slot_[id]->clone());
 }

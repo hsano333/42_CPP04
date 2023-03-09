@@ -74,6 +74,7 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria* m)
 {
+    bool err_flag = true;
     if ( m == 0) 
     {
         cout << "[Character] equip error.invalid materia" << endl;
@@ -85,17 +86,20 @@ void Character::equip(AMateria* m)
         {
             this->slot_[i].first = m->clone();
             this->slot_[i].second = true;
+            err_flag = false;
             break ;
         }
     }
     delete m;
+    if (err_flag)
+        cout << "[Character]slot is full so can't equip." << endl;
 }
 
 void Character::unequip(int idx)
 {
     if (idx < 0 || idx >= this->slot_max_)
     {
-        cout << "[Character] unequip error.invalid slot id" << endl;
+        cout << "[Character] unequip error. slot:" << idx << " is invalid slot id" << endl;
         return ;
     }
     if (this->slot_[idx].first && this->slot_[idx].second == true)
@@ -105,7 +109,7 @@ void Character::unequip(int idx)
         this->slot_[idx].second = false;
     }
     else
-        cout << "[Character] unequip error.This slot is empty" << endl;
+        cout << "[Character] unequip error. slot:" << idx << " is empty" << endl;
 }
 
 void Character::use(int idx, ICharacter& target)
@@ -115,11 +119,11 @@ void Character::use(int idx, ICharacter& target)
         if (this->slot_[idx].second)
             this->slot_[idx].first->use(target);
         else
-            cout << "[Character] use error." << idx << " is empty" << endl;
+            cout << "[Character] can't use. slot:" << idx << " is empty" << endl;
     }
     else
     {
-        cout << "[Character] use error.invalid slot id" << endl;
+        cout << "[Character] can't use. slot:" << idx << " is invalid slot id" << endl;
     }
 }
 
