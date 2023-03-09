@@ -11,10 +11,12 @@
 using std::cout;
 using std::endl;
 
+/*
 #include <stdio.h>
 __attribute__((destructor)) void f(void){
     system("leaks  Interface_recap");
 }
+*/
 
 int main(void)
 {
@@ -49,8 +51,7 @@ int main(void)
         me->equip(tmp); //1
         tmp = src->createMateria("cure");
         me->equip(tmp); //2
-        cout << "[Main:TestError]" << endl;
-        tmp = src->createMateria("fire");
+        tmp = src->createMateria("fire"); //error
         me->equip(tmp); //error
         tmp = src->createMateria("ice");
         me->equip(tmp); //3
@@ -67,7 +68,6 @@ int main(void)
         me->use(1, *bob);
         me->use(2, *bob);
         me->use(3, *bob);
-        cout << endl << "Test:Use Error" << endl;
         me->use(4, *bob); //error
 
         cout << endl << "Test:Unequip" << endl;
@@ -101,6 +101,22 @@ int main(void)
         me->unequip(3);
         me->unequip(0);
         me->unequip(1);
+        me->equip(new Ice()); 
+        me->equip(new Ice()); 
+        me->equip(new Cure());
+        me->unequip(0);
+        me->unequip(1);
+        me->unequip(2);
+        me->equip(new Ice()); 
+        me->equip(new Ice()); 
+        me->equip(new Cure());
+        me->equip(new Cure());
+        me->unequip(0);
+        me->unequip(1);
+        me->unequip(2);
+        me->unequip(3);
+        me->equip(new Cure());
+
         you->equip(new Ice());
         you->equip(new Ice());
         you->equip(new Ice());
@@ -113,40 +129,5 @@ int main(void)
         //return 0;
 
     }
-    /*
-    {
-        cout << endl << "Test2" << endl;
-        IMateriaSource* src = new MateriaSource();
-        AMateria* tmp; 
-        tmp = src->createMateria("ice");
-        src->learnMateria(new Ice());
-        src->learnMateria(new Cure());
-        Character me1;
-        tmp = src->createMateria("ice");
-        me1.equip(tmp); //1
-        tmp = src->createMateria("cure");
-        me1.equip(tmp); //2
-                        
-        //error 
-        //me1.equip(tmp); //3
-                        
-        //Character me2;
-        //me2 = me1;
-        //Character me3 = Character(me2);
-
-        Ice ice1;
-        Ice ice2;
-        ice2 = ice1;
-        Ice ice3 = Ice(ice2);
-        ice2 = ice1;
-
-        Cure cure1;
-        Cure cure2;
-        cure2 = cure1;
-        Cure cure3 = Cure(cure2);
-        delete src;
-    }
-    */
-
     return (0);
 }
