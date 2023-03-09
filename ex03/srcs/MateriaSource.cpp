@@ -27,14 +27,18 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& msource)
 
 MateriaSource::~MateriaSource()
 {
+    std::cout << "destracted MateriaSource" << std::endl;
     this->delete_all_slot();
 }
 
 void MateriaSource::delete_all_slot(void)
 {
+    std::cout << "destracted MateriaSource, delete_all_slot No.1" << std::endl;
     for(int i=0; i < this->slot_id_; i++)
     {
-        delete this->slot_[i];
+    std::cout << "destracted MateriaSource, delete_all_slot No.2" << std::endl;
+        if (this->slot_[i])
+            delete this->slot_[i];
         this->slot_[i] = 0;
     }
 }
@@ -43,9 +47,10 @@ void MateriaSource::learnMateria(AMateria* materia)
 {
     if (this->slot_id_ < slot_max_)
     {
-        this->slot_[slot_id_] = materia;
+        this->slot_[slot_id_] = materia->clone();
         slot_id_++;
     }
+    delete materia;
 }
 
 int MateriaSource::searchMateria(std::string const &type)
