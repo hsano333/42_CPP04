@@ -18,12 +18,13 @@ class Character : virtual public ICharacter
             public:
                 UnequipedSlot();
                 ~UnequipedSlot();
+                UnequipedSlot(const UnequipedSlot& unequiped_slot);
+                UnequipedSlot& operator=(const UnequipedSlot& unequiped_slot);
                 AMateria* slot;
                 UnequipedSlot* next;
                 void add(AMateria* slot);
                 void clear();
         };
-        //AMateria* unequiped_slot;
         UnequipedSlot unequiped_slot;
     public:
         Character();

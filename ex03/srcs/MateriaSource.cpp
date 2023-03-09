@@ -27,16 +27,13 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& msource)
 
 MateriaSource::~MateriaSource()
 {
-    std::cout << "destracted MateriaSource" << std::endl;
     this->delete_all_slot();
 }
 
 void MateriaSource::delete_all_slot(void)
 {
-    std::cout << "destracted MateriaSource, delete_all_slot No.1" << std::endl;
     for(int i=0; i < this->slot_id_; i++)
     {
-    std::cout << "destracted MateriaSource, delete_all_slot No.2" << std::endl;
         if (this->slot_[i])
             delete this->slot_[i];
         this->slot_[i] = 0;
