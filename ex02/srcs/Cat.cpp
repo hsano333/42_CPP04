@@ -7,7 +7,7 @@ Cat::Cat() : Animal() , brain_(NULL)
 {
     this->type_ = "Cat";
     this->brain_ = new Brain;
-    cout << "[Cat] default constructor called. brain address:" << this->brain_ << endl;
+    cout << "[Cat] default constructor called." << endl;
 }
 
 Cat::Cat(const Cat &cat) : Animal(cat) , brain_(NULL)
@@ -15,7 +15,7 @@ Cat::Cat(const Cat &cat) : Animal(cat) , brain_(NULL)
     Brain *tmp = new Brain;
     Brain::deepcopy(cat.brain_, tmp);
     this->brain_ = tmp;
-    cout << "[Cat] Copy constructor called. this brain address: " << this->brain_ << " copy brain address:" << cat.brain_  << endl;
+    cout << "[Cat] Copy constructor called." << endl;
 }
 
 Cat& Cat::operator=(const Cat &cat)
@@ -32,7 +32,7 @@ Cat& Cat::operator=(const Cat &cat)
             cout << e.what() << endl;
         }
     }
-    cout << "[Cat] Copy constructor called. this brain address: " << this->brain_ << " copy brain address:" << cat.brain_  << endl;
+    cout << "[Cat] Copy constructor called." << endl;
     return (*this);
 }
 
