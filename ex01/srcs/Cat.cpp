@@ -3,18 +3,17 @@
 using std::cout;
 using std::endl;
 
-Cat::Cat() : Animal()
+Cat::Cat() : Animal() : brain_(NULL)
 {
     this->type_ = "Cat";
     this->brain_ = new Brain;
     cout << "[Cat] default constructor called. brain address:" << this->brain_ << endl;
 }
 
-Cat::Cat(const Cat &cat) : Animal(cat)
+Cat::Cat(const Cat &cat) : Animal(cat) , brain_(NULL)
 {
     Brain *tmp = new Brain;
     this->brain_->deepcopy(cat.brain_, tmp);
-    this->type_ = std::string(cat.type_);
     this->brain_ = tmp;
     cout << "[Cat] Copy constructor called. this brain address: " << this->brain_ << " copy brain address:" << cat.brain_  << endl;
 }
@@ -24,11 +23,14 @@ Cat& Cat::operator=(const Cat &cat)
     if (this != &cat)
     {
         this->Animal::operator=(cat);
-        delete this->brain_;
-        Brain *tmp = new Brain;
-        this->brain_->deepcopy(cat.brain_, tmp);
-        this->type_ = std::string(cat.type_);
-        this->brain_ = tmp;
+        try{
+            Brain *tmp = new Brain;
+            Brain::deepcopy(cat.brain_, tmp);
+            delete this->brain_;
+            this->brain_ = tmp;
+        }catch(std::exception &e){
+            cout << e.what() << endl;
+        }
     }
     cout << "[Cat] Copy constructor called. this brain address: " << this->brain_ << " copy brain address:" << cat.brain_  << endl;
     return (*this);

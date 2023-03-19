@@ -21,11 +21,14 @@ int main()
     const Animal* j = new Dog();
     const Animal* i = new Cat();
     const Animal* k;
+    //const Animal* k = new Animal();
 
     cout << "Test:Dog makeSound()" << endl;
     j->makeSound();
+    cout << j->getType() << endl;
     k = j;
     k->makeSound();
+    cout << k->getType() << endl;
 
 
     cout << endl << "Test:make Cat()" << endl;
@@ -52,13 +55,16 @@ int main()
     cout << endl;
     }
     {
+        cout << endl << "Test Cat" << endl;
         Cat cat2;
         Cat cat3;
-
+        Cat cat4 = Cat(cat2);
         cat2 = cat3;
 
+        cout << endl << "Test Dog" << endl;
         Dog dog2;
         Dog dog3;
+        Dog dog4 = Dog(dog2);
 
         dog2 = dog3;
     }

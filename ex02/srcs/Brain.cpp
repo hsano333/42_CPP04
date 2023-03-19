@@ -35,7 +35,7 @@ Brain::~Brain()
     cout << "[Brain] Destructor called" << endl;
 }
 
-void Brain::deepcopy(const Brain* src, Brain* dst) const
+void Brain::deepcopy(const Brain* src, Brain* dst)
 {
     for(int i=0; i < array_size_; i++)
     {
