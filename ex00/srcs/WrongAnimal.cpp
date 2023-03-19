@@ -16,6 +16,8 @@ WrongAnimal::WrongAnimal(const WrongAnimal &wrong_animal)
 }
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal &wrong_animal)
 {
+    if (this == &wrong_animal)
+        return (*this);
     cout << "[WrongAnimal]Copy assignment operator called" << endl;
     this->type_ = wrong_animal.type_;
     return (*this);

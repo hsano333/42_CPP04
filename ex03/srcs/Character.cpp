@@ -31,8 +31,8 @@ Character::Character(const Character& chara) : unequiped_slot(UnequipedSlot())
     init_array(slot_, this->slot_max_);
     for (int i = 0; i < this->slot_max_; i++)
     {
-        this->slot_[i].first = chara.slot_[i].first->clone();
-        this->slot_[i].second = true;
+        if (chara.slot_[i].second)
+            this->slot_[i] = std::make_pair(chara.slot_[i].first->clone(), false);
     }
 }
 
