@@ -12,7 +12,7 @@ class Brain
         Brain(const Brain &brain);
         Brain& operator=(const Brain &brain);
         ~Brain();
-        void deepcopy(const Brain* src, Brain* dst) const;
+        static void deepcopy(const Brain* src, Brain* dst);
 };
 
 #endif

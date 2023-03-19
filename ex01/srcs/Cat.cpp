@@ -3,7 +3,7 @@
 using std::cout;
 using std::endl;
 
-Cat::Cat() : Animal() : brain_(NULL)
+Cat::Cat() : Animal() , brain_(NULL)
 {
     this->type_ = "Cat";
     this->brain_ = new Brain;
@@ -13,7 +13,7 @@ Cat::Cat() : Animal() : brain_(NULL)
 Cat::Cat(const Cat &cat) : Animal(cat) , brain_(NULL)
 {
     Brain *tmp = new Brain;
-    this->brain_->deepcopy(cat.brain_, tmp);
+    Brain::deepcopy(cat.brain_, tmp);
     this->brain_ = tmp;
     cout << "[Cat] Copy constructor called. this brain address: " << this->brain_ << " copy brain address:" << cat.brain_  << endl;
 }

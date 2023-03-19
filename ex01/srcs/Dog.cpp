@@ -3,7 +3,7 @@
 using std::cout;
 using std::endl;
 
-Dog::Dog() : Animal() : brain_(NULL)
+Dog::Dog() : Animal() , brain_(NULL)
 {
     this->type_ = "Dog";
     this->brain_ = new Brain;
@@ -14,7 +14,6 @@ Dog::Dog(const Dog &dog) : Animal(dog) , brain_(NULL)
     Brain *tmp = new Brain;
     Brain::deepcopy(dog.brain_, tmp);
     this->brain_ = tmp;
-    //this->type_ = std::string(dog.type_);
     cout << "[Dog] Copy constructor called. this brain address: " << this->brain_ << " copy brain address:" << dog.brain_  << endl;
 }
 
@@ -44,6 +43,5 @@ Dog::~Dog()
 
 void Dog::makeSound(void) const
 {
-    //cout << "makeSound() brain=" << this->brain_ << endl;
     cout << "Wan!" << endl;
 }
