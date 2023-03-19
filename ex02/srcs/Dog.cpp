@@ -7,14 +7,14 @@ Dog::Dog() : Animal() , brain_(NULL)
 {
     this->type_ = "Dog";
     this->brain_ = new Brain;
-    cout << "[Dog] default constructor called. brain address:" << this->brain_ << endl;
+    cout << "[Dog] default constructor called." << endl;
 }
 Dog::Dog(const Dog &dog) : Animal(dog) , brain_(NULL)
 {
     Brain *tmp = new Brain;
     Brain::deepcopy(dog.brain_, tmp);
     this->brain_ = tmp;
-    cout << "[Dog] Copy constructor called. this brain address: " << this->brain_ << " copy brain address:" << dog.brain_  << endl;
+    cout << "[Dog] Copy constructor called." << endl;
 }
 
 Dog& Dog::operator=(const Dog &dog)
@@ -31,7 +31,7 @@ Dog& Dog::operator=(const Dog &dog)
             cout << e.what() << endl;
         }
     }
-    cout << "[Dog]Copy assignment operator called. this brain address:" << this->brain_ << " copy brain address:" << dog.brain_ << endl;
+    cout << "[Dog]Copy assignment operator called." << endl;
     return (*this);
 }
 
